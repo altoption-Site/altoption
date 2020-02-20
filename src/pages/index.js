@@ -60,6 +60,7 @@ const MainHero = styled.header`
     height: 100%;
     img {
       width: 100%;
+      background-color: var(--dark-blue);
       height: 100%;
     }
   }

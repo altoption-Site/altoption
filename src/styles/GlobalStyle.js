@@ -10,8 +10,7 @@ html {
   font-size: 8px;
 font-family: 'Roboto', sans-serif;
 --black: #030323;
-
-
+--dark-blue: #050535;
 
 }
 
