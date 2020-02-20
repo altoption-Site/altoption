@@ -30,6 +30,11 @@ const FooterStyled = styled.footer`
     li {
     }
   }
+  h4 {
+    span {
+      font-weight: 300;
+    }
+  }
 `
 
 // const NavBarS = styled.div`
@@ -44,7 +49,6 @@ const FooterStyled = styled.footer`
 const Footer = () => {
   const { footer } = useFooterContent()
   const headQuarters = stringCleaning(footer.companyInfo)
-  console.log(footer)
   return (
     <FooterS>
       <FooterStyled>
@@ -61,7 +65,7 @@ const Footer = () => {
         <div style={{ height: "30%" }}>
           <h4>
             <div dangerouslySetInnerHTML={headQuarters} />
-            {footer.address}
+            <span>{footer.address}</span>
           </h4>
         </div>
       </FooterStyled>

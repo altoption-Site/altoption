@@ -1,7 +1,8 @@
 import React from "react"
 
 export function cleanHomePageData(obj) {
-  const data = obj.allSanityHomePage.edges.reduce((acc, { node }) => node, {})
+  console.log(obj)
+  const data = obj.edges.reduce((acc, { node }) => node, {})
   //   console.log(data)
 
   const { services } = data
@@ -29,6 +30,12 @@ export function cleanHomePageData(obj) {
 
   //   console.log(tagline)
   return { tagline, description, servicesLeft, servicesRight }
+}
+
+export function cleanAboutUsPage(obj) {
+  //
+  const data = obj.edges.reduce((acc, { node }) => node, {})
+  return { ...data }
 }
 
 function createMarkup(string) {

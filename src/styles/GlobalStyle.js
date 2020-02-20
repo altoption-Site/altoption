@@ -9,6 +9,7 @@ const GlobalStyle = createGlobalStyle`
 html {
   font-size: 8px;
 font-family: 'Roboto', sans-serif;
+--black: #030323;
 
 
 

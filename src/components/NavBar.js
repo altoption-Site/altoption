@@ -10,7 +10,7 @@ const NavBarS = styled.div`
   height: 8rem;
   z-index: 1000000;
   top: 0;
-  position: absolute;
+  position: ${({ position }) => position};
 `
 const NavStyled = styled.nav`
   height: 100%;
@@ -40,8 +40,9 @@ const NavBar = () => {
   const { path } = usePath()
   const logo = path === "/" ? logoWhite : logoColor
   const mainColor = path === "/" ? "#fff" : "##000080;"
+  const position = path === "/" ? "absolute" : "relative"
   return (
-    <NavBarS>
+    <NavBarS position={position}>
       <NavStyled mainColor={mainColor}>
         <Link to="/">
           <img src={logo} />

@@ -170,7 +170,7 @@ const Index = ({ data, location }) => {
   fillFooter(data)
   pathDefiner(path)
 
-  const homePageData = cleanHomePageData(data)
+  const homePageData = cleanHomePageData(data.allSanityHomePage)
 
   return (
     <Layout>
