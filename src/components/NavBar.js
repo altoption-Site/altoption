@@ -38,13 +38,14 @@ const NavStyled = styled.nav`
 
 const NavBar = () => {
   const { path } = usePath()
-  console.log(path)
   const logo = path === "/" ? logoWhite : logoColor
   const mainColor = path === "/" ? "#fff" : "##000080;"
   return (
     <NavBarS>
       <NavStyled mainColor={mainColor}>
-        <img src={logoWhite} />
+        <Link to="/">
+          <img src={logo} />
+        </Link>
         <div className="links">
           <ul>
             <li>

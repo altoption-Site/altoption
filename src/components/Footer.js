@@ -43,7 +43,7 @@ const FooterStyled = styled.footer`
 
 const Footer = () => {
   const { footer } = useFooterContent()
-  const sede = stringCleaning(footer.companyInfo)
+  const headQuarters = stringCleaning(footer.companyInfo)
   console.log(footer)
   return (
     <FooterS>
@@ -60,8 +60,7 @@ const Footer = () => {
         </div>
         <div style={{ height: "30%" }}>
           <h4>
-            <div dangerouslySetInnerHTML={sede} />
-            {/* <br /> */}
+            <div dangerouslySetInnerHTML={headQuarters} />
             {footer.address}
           </h4>
         </div>
