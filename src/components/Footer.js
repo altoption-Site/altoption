@@ -1,6 +1,8 @@
 import React from "react"
 import styled from "styled-components"
 import { logoWhite } from "../utils/imageUpload"
+import { useFooterContent } from "./Context/FooterContext"
+import { stringCleaning } from "../lib/cleanData"
 
 const FooterS = styled.div`
   margin-top: 20rem;
@@ -40,6 +42,9 @@ const FooterStyled = styled.footer`
 // `
 
 const Footer = () => {
+  const { footer } = useFooterContent()
+  const sede = stringCleaning(footer.companyInfo)
+  console.log(footer)
   return (
     <FooterS>
       <FooterStyled>
@@ -48,15 +53,16 @@ const Footer = () => {
         </div>
         <div style={{ height: "30%" }}>
           <ul>
-            <li>E email@altoption.pt</li>
-            <li>T 214107145</li>
-            <li>F 214107146</li>
+            <li>E {footer.email}</li>
+            <li>T {footer.phone}</li>
+            <li>F {footer.fax}</li>
           </ul>
         </div>
         <div style={{ height: "30%" }}>
           <h4>
-            Sede Altoption – Sistemas de Informaçao, Lda. Rua Ernesto Costa, nº
-            6, Loja traseira, 1600-443 Lisboa
+            <div dangerouslySetInnerHTML={sede} />
+            {/* <br /> */}
+            {footer.address}
           </h4>
         </div>
       </FooterStyled>

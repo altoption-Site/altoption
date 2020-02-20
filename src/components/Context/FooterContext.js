@@ -1,21 +1,20 @@
 import React, { createContext, useContext, useState } from "react"
 
-const LogoContext = createContext()
-const LogoContextProvider = LogoContext.Provider
+const FooterContext = createContext()
+const FooterProvider = FooterContext.Provider
 
-export function LogoProvider({ children }) {
-  const [path, setPath] = useState("")
+export function FooterWrapper({ children }) {
+  const [footer, setFooter] = useState("")
 
-  function pathDefiner(arg) {
-    setPath(arg)
+  function fillFooter({ allSanityFooter }) {
+    const footerData = allSanityFooter.edges.reduce((acc, { node }) => node, {})
+    setFooter(footerData)
   }
   return (
-    <LogoContextProvider value={{ path, pathDefiner }}>
-      {children}
-    </LogoContextProvider>
+    <FooterProvider value={{ footer, fillFooter }}>{children}</FooterProvider>
   )
 }
 
-export function usePath() {
-  return useContext(LogoContext)
+export function useFooterContent() {
+  return useContext(FooterContext)
 }

@@ -15,6 +15,7 @@ import { MainContainer } from "../styles/BodyGeneral"
 import { cleanPath } from "../lib/cleanPath"
 import { usePath } from "../components/Context/LogoContext"
 import { cleanHomePageData } from "../lib/cleanData"
+import { useFooterContent } from "../components/Context/FooterContext"
 
 export const query = graphql`
   query allHomePage {
@@ -163,7 +164,10 @@ const colors = ["red", "yellow", "orange", "pink"]
 
 const Index = ({ data, location }) => {
   const { pathDefiner } = usePath()
+  const { fillFooter } = useFooterContent()
+
   const path = cleanPath(location)
+  fillFooter(data)
   pathDefiner(path)
 
   const homePageData = cleanHomePageData(data)

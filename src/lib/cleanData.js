@@ -19,21 +19,13 @@ export function cleanHomePageData(obj) {
   servicesLeft = servicesLeft.map(el => <li>{el}</li>)
   servicesRight = servicesRight.map(el => <li>{el}</li>)
 
-  console.log(servicesRight)
+  // console.log(servicesRight)
 
   const description = data.heroDescription
-  console.log(description)
-  const tag = data.tagline
-    .split("/")
-    .map((el, i) => {
-      if (i === 1) {
-        return `<strong>${el}</strong>`
-      }
-      return el
-    })
-    .join(" ")
+  // console.log(description)
+  const tagline = stringCleaning(data.tagline)
 
-  const tagline = createMarkup(tag)
+  // const tagline = createMarkup(tag)
 
   //   console.log(tagline)
   return { tagline, description, servicesLeft, servicesRight }
@@ -41,4 +33,20 @@ export function cleanHomePageData(obj) {
 
 function createMarkup(string) {
   return { __html: string }
+}
+
+export function stringCleaning(string) {
+  console.log(string)
+  const first = string
+    ? string
+        .split("/")
+        .map((el, i) => {
+          if (i === 1) {
+            return `<strong>${el}</strong>`
+          }
+          return el
+        })
+        .join(" ")
+    : ""
+  return createMarkup(first)
 }

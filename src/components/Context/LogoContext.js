@@ -1,4 +1,5 @@
 import React, { createContext, useContext, useState } from "react"
+import { FooterWrapper } from "./FooterContext"
 
 const LogoContext = createContext()
 const LogoContextProvider = LogoContext.Provider
@@ -11,7 +12,7 @@ export function LogoProvider({ children }) {
   }
   return (
     <LogoContextProvider value={{ path, pathDefiner }}>
-      {children}
+      <FooterWrapper>{children}</FooterWrapper>
     </LogoContextProvider>
   )
 }
