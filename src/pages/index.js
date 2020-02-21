@@ -207,7 +207,7 @@ const Index = ({ data, location }) => {
           {/* </div> */}
         </Test>
         <Clients>
-          <h1>Os nossos clientes</h1>
+          <h1>Os nossos parceiros</h1>
           <div className="logos">
             <img src={logosPlaceholder} />
           </div>
