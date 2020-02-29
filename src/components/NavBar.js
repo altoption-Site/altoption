@@ -50,10 +50,10 @@ const NavBar = () => {
         <div className="links">
           <ul>
             <li>
-              <Link to="sobre-nos">Sobre nós</Link>
+              <Link to="/sobre-nos">Sobre nós</Link>
             </li>
             <li>
-              <Link to="servicos">Serviços</Link>
+              <Link to="/servicos">Serviços</Link>
             </li>
           </ul>
         </div>
