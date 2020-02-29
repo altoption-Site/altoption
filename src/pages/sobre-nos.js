@@ -4,7 +4,6 @@ import { graphql } from "gatsby"
 import { usePath } from "../components/Context/LogoContext"
 import { useFooterContent } from "../components/Context/FooterContext"
 import { cleanPath } from "../lib/cleanPath"
-import { MainContainer } from "../styles/BodyGeneral"
 import styled from "styled-components"
 import { cleanAboutUsPage } from "../lib/cleanData"
 import { computer } from "../utils/imageUpload"
@@ -107,28 +106,26 @@ const AboutUs = ({ data, location }) => {
 
   return (
     <Layout>
-      <MainContainer>
-        <AboutUsPage img={computer}>
-          <h2>{aboutUsData.intro}</h2>
-          <div className="divide">
-            <p>{aboutUsData.aboutUsLeft}</p>
-            <p>{aboutUsData.teamRight}</p>
+      <AboutUsPage img={computer}>
+        <h2>{aboutUsData.intro}</h2>
+        <div className="divide">
+          <p>{aboutUsData.aboutUsLeft}</p>
+          <p>{aboutUsData.teamRight}</p>
+        </div>
+        <div className="full">
+          <div className="parallax"></div>
+        </div>
+        <div className="bottom">
+          <div className="team">
+            <h1>Equipa</h1>
+            <ReactMarkdown source={aboutUsData.team} />
           </div>
-          <div className="full">
-            <div className="parallax"></div>
+          <div className="partnerships">
+            <h1>Parcerias</h1>
+            <ReactMarkdown source={aboutUsData.partnerships} />
           </div>
-          <div className="bottom">
-            <div className="team">
-              <h1>Equipa</h1>
-              <ReactMarkdown source={aboutUsData.team} />
-            </div>
-            <div className="partnerships">
-              <h1>Parcerias</h1>
-              <ReactMarkdown source={aboutUsData.partnerships} />
-            </div>
-          </div>
-        </AboutUsPage>
-      </MainContainer>
+        </div>
+      </AboutUsPage>
     </Layout>
   )
 }

@@ -11,7 +11,6 @@ import {
   logosPlaceholder,
 } from "../utils/imageUpload"
 import { Button } from "../styles/Button"
-import { MainContainer } from "../styles/BodyGeneral"
 import { cleanPath } from "../lib/cleanPath"
 import { usePath } from "../components/Context/LogoContext"
 import { cleanHomePageData } from "../lib/cleanData"
@@ -33,7 +32,6 @@ export const query = graphql`
         node {
           email
           address
-          email
           companyInfo
           fax
           phone
@@ -47,9 +45,9 @@ const MainHero = styled.header`
   color: white;
   text-align: center;
   width: 100vw;
-  position: relative;
   height: 100vh;
   background: green;
+  position: relative;
   left: 50%;
   right: 50%;
   margin-left: -50vw;
@@ -175,44 +173,42 @@ const Index = ({ data, location }) => {
 
   return (
     <Layout>
-      <MainContainer>
-        <MainHero>
-          <div className="image">
-            <img src={mainHero} />
-            <div className="hero">
-              <h1 dangerouslySetInnerHTML={homePageData.tagline} />
-              <p>{homePageData.description}</p>
-              <Link to="/serviços">
-                <Button styleType="primary">Veja os nossos serviços</Button>
-              </Link>
+      <MainHero>
+        <div className="image">
+          <img src={mainHero} />
+          <div className="hero">
+            <h1 dangerouslySetInnerHTML={homePageData.tagline} />
+            <p>{homePageData.description}</p>
+            <Link to="/serviços">
+              <Button styleType="primary">Veja os nossos serviços</Button>
+            </Link>
+          </div>
+        </div>
+      </MainHero>
+      <Test>
+        <div className="solucoes">
+          <div className="list">
+            <h3>As soluçōes que oferecemos</h3>
+            <h6 style={{ marginBottom: "24px", fontWeight: "normal" }}>
+              A alt.option, disponibiliza no seu portfolio serviços de:
+            </h6>
+            <div className="lists">
+              <ul>{homePageData.servicesLeft}</ul>
+              <ul>{homePageData.servicesRight}</ul>
             </div>
           </div>
-        </MainHero>
-        <Test>
-          <div className="solucoes">
-            <div className="list">
-              <h3>As soluçōes que oferecemos</h3>
-              <h6 style={{ marginBottom: "24px", fontWeight: "normal" }}>
-                A alt.option, disponibiliza no seu portfolio serviços de:
-              </h6>
-              <div className="lists">
-                <ul>{homePageData.servicesLeft}</ul>
-                <ul>{homePageData.servicesRight}</ul>
-              </div>
-            </div>
-            <Button styleType="primary">Ver mais</Button>
-          </div>
-          {/* <div className="stuff"> */}
-          <img src={computerStandWithShadow} />
-          {/* </div> */}
-        </Test>
-        <Clients>
-          <h1>Os nossos parceiros</h1>
-          <div className="logos">
-            <img src={logosPlaceholder} />
-          </div>
-        </Clients>
-      </MainContainer>
+          <Button styleType="primary">Ver mais</Button>
+        </div>
+        {/* <div className="stuff"> */}
+        <img src={computerStandWithShadow} />
+        {/* </div> */}
+      </Test>
+      <Clients>
+        <h1>Os nossos parceiros</h1>
+        <div className="logos">
+          <img src={logosPlaceholder} />
+        </div>
+      </Clients>
     </Layout>
   )
 }

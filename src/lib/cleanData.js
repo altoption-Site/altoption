@@ -57,3 +57,10 @@ export function stringCleaning(string) {
     : ""
   return createMarkup(first)
 }
+
+export function cleanServicesPage(obj) {
+  const data = obj.edges.reduce((acc, { node }) => node, {})
+  const { tagline, servicesList } = data
+
+  return { ...data }
+}
