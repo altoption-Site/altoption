@@ -24,22 +24,37 @@ const NavStyled = styled.nav`
   .links {
     ul {
       list-style: none;
-      color: white;
+      color: ${({ mainColor }) => mainColor};
+
       display: flex;
     }
     li {
       margin-left: 7rem;
+      color: ${({ mainColor }) => mainColor};
+
       a {
+        text-decoration: none;
         color: ${({ mainColor }) => mainColor};
+      }
+
+      .active {
+        font-weight: bold;
       }
     }
   }
 `
 
+// activeClassName="active"
+
+const pages = [
+  { link: "/sobre-nos", text: "Sobre nós" },
+  { link: "/servicos", text: "Serviços" },
+]
+
 const NavBar = () => {
   const { path } = usePath()
   const logo = path === "/" ? logoWhite : logoColor
-  const mainColor = path === "/" ? "#fff" : "##000080;"
+  const mainColor = path === "/" ? "#fff" : "#000080;"
   const position = path === "/" ? "absolute" : "relative"
   return (
     <NavBarS position={position}>
@@ -49,12 +64,19 @@ const NavBar = () => {
         </Link>
         <div className="links">
           <ul>
-            <li>
+            {pages.map(el => (
+              <li key={el.link}>
+                <Link to={el.link} activeClassName="active">
+                  {el.text}
+                </Link>
+              </li>
+            ))}
+            {/* <li>
               <Link to="/sobre-nos">Sobre nós</Link>
             </li>
             <li>
               <Link to="/servicos">Serviços</Link>
-            </li>
+            </li> */}
           </ul>
         </div>
       </NavStyled>

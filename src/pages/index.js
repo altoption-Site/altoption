@@ -179,7 +179,7 @@ const Index = ({ data, location }) => {
           <div className="hero">
             <h1 dangerouslySetInnerHTML={homePageData.tagline} />
             <p>{homePageData.description}</p>
-            <Link to="/serviços">
+            <Link to="/servicos">
               <Button styleType="primary">Veja os nossos serviços</Button>
             </Link>
           </div>
@@ -203,12 +203,12 @@ const Index = ({ data, location }) => {
         <img src={computerStandWithShadow} />
         {/* </div> */}
       </Test>
-      <Clients>
+      {/* <Clients>
         <h1>Os nossos parceiros</h1>
         <div className="logos">
           <img src={logosPlaceholder} />
         </div>
-      </Clients>
+      </Clients> */}
     </Layout>
   )
 }
