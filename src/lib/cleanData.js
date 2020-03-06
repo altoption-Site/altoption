@@ -1,8 +1,8 @@
 import React from "react"
 
 export function cleanHomePageData(obj) {
-  console.log(obj)
   const data = obj.edges.reduce((acc, { node }) => node, {})
+  console.log({ data })
   //   console.log(data)
 
   const { services } = data
@@ -26,16 +26,31 @@ export function cleanHomePageData(obj) {
   // console.log(description)
   const tagline = stringCleaning(data.tagline)
 
+  const { homeBgColor } = data
+
+  const homeImage = data.homeImg.asset.fluid
+
   // const tagline = createMarkup(tag)
 
   //   console.log(tagline)
-  return { tagline, description, servicesLeft, servicesRight }
+  return {
+    tagline,
+    description,
+    servicesLeft,
+    servicesRight,
+    homeBgColor,
+    homeImage,
+  }
 }
 
 export function cleanAboutUsPage(obj) {
   //
   const data = obj.edges.reduce((acc, { node }) => node, {})
-  return { ...data }
+
+  const { aboutBgColor } = data
+
+  const aboutImg = data.aboutImg.asset.fluid
+  return { ...data, aboutImg, aboutBgColor }
 }
 
 function createMarkup(string) {
@@ -55,6 +70,7 @@ export function stringCleaning(string) {
         })
         .join(" ")
     : ""
+
   return createMarkup(first)
 }
 

@@ -15,6 +15,8 @@ import { cleanPath } from "../lib/cleanPath"
 import { usePath } from "../components/Context/LogoContext"
 import { cleanHomePageData } from "../lib/cleanData"
 import { useFooterContent } from "../components/Context/FooterContext"
+import Img from "gatsby-image"
+import BgImage from "gatsby-background-image"
 
 export const query = graphql`
   query allHomePage {
@@ -24,6 +26,15 @@ export const query = graphql`
           tagline
           heroDescription
           services
+          homeBgColor
+          homeImg {
+            asset {
+              fluid {
+                src
+                ...GatsbySanityImageFluid
+              }
+            }
+          }
         }
       }
     }
@@ -46,7 +57,6 @@ const MainHero = styled.header`
   text-align: center;
   width: 100vw;
   height: 100vh;
-  background: green;
   position: relative;
   left: 50%;
   right: 50%;
@@ -56,11 +66,10 @@ const MainHero = styled.header`
   .image {
     width: 100%;
     height: 100%;
-    img {
-      width: 100%;
-      background-color: var(--dark-blue);
-      height: 100%;
-    }
+    position: absolute;
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
   }
 
   .hero {
@@ -174,8 +183,14 @@ const Index = ({ data, location }) => {
   return (
     <Layout>
       <MainHero>
-        <div className="image">
-          <img src={mainHero} />
+        {/* <div className="image"> */}
+        <BgImage
+          fluid={homePageData.homeImage}
+          Tag="div"
+          className="image"
+          backgroundColor={homePageData.homeBgColor}
+        >
+          {/* <Img fluid={homePageData.homeImage} /> */}
           <div className="hero">
             <h1 dangerouslySetInnerHTML={homePageData.tagline} />
             <p>{homePageData.description}</p>
@@ -183,7 +198,9 @@ const Index = ({ data, location }) => {
               <Button styleType="primary">Veja os nossos serviços</Button>
             </Link>
           </div>
-        </div>
+        </BgImage>
+
+        {/* </div> */}
       </MainHero>
       <Test>
         <div className="solucoes">

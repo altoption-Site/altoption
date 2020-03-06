@@ -8,6 +8,7 @@ import styled from "styled-components"
 import { cleanAboutUsPage } from "../lib/cleanData"
 import { computer } from "../utils/imageUpload"
 import ReactMarkdown from "react-markdown"
+import BgImg from "gatsby-background-image"
 
 export const query = graphql`
   query allAboutUs {
@@ -19,6 +20,14 @@ export const query = graphql`
           partnerships
           team
           teamRight
+          aboutBgColor
+          aboutImg {
+            asset {
+              fluid {
+                ...GatsbySanityImageFluid
+              }
+            }
+          }
         }
       }
     }
@@ -113,7 +122,12 @@ const AboutUs = ({ data, location }) => {
           <p>{aboutUsData.teamRight}</p>
         </div>
         <div className="full">
-          <div className="parallax"></div>
+          <BgImg
+            fluid={aboutUsData.aboutImg}
+            Tag="div"
+            className="parallax"
+            backgroundColor={aboutUsData.aboutBgColor}
+          />
         </div>
         <div className="bottom">
           <div className="team">
