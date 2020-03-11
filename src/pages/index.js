@@ -194,9 +194,9 @@ const Index = ({ data, location }) => {
           <div className="hero">
             <h1 dangerouslySetInnerHTML={homePageData.tagline} />
             <p>{homePageData.description}</p>
-            <Link to="/servicos">
+            {/* <Link to="/servicos">
               <Button styleType="primary">Veja os nossos serviços</Button>
-            </Link>
+            </Link> */}
           </div>
         </BgImage>
 
@@ -214,7 +214,9 @@ const Index = ({ data, location }) => {
               <ul>{homePageData.servicesRight}</ul>
             </div>
           </div>
-          <Button styleType="primary">Ver mais</Button>
+          <Link to="/servicos">
+            <Button styleType="primary">Ver mais</Button>
+          </Link>
         </div>
         {/* <div className="stuff"> */}
         <img src={computerStandWithShadow} />
