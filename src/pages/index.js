@@ -42,9 +42,7 @@ export const query = graphql`
 `;
 
 const IndexPage = ({ data, location }) => {
-  console.log("data:", data);
   const home_page_data = useHome({ data, location });
-  console.log("home_page_data:", home_page_data);
 
   return (
     <Layout>

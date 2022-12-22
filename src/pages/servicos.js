@@ -7,7 +7,6 @@ import ReactMarkdown from "react-markdown";
 
 export default function Servicos({ data, location }) {
   const service_page_data = useServicos({ data, location });
-  console.log("service_page_data:", service_page_data);
 
   return (
     <Layout>
